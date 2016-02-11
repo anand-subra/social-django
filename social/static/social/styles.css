@@ -1,0 +1,181 @@
+/* styles.css */
+
+* {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 11pt;
+}
+body {
+    background: transparent;
+    color: white;
+    font-family: 'PT Sans Caption', sans-serif;
+}
+html {
+    background: url(../../static/social/background.jpg) no-repeat center center fixed;
+    ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+img {
+    border: 1px solid black;
+    margin-right: 15px;
+    -moz-box-shadow: 2px 2px 2px #888;
+    -webkit-box-shadow: 2px 2px 2px #888;
+    box-shadow: 2px 2px 2px #888;
+}
+li a,
+.button {
+    text-decoration: none;
+}
+li a:hover,
+.button:hover {
+    color: green;
+}
+.appname {
+    color: #FFF;
+    font-family: 'Quicksand', sans-serif;
+    ;
+    font-size: 14pt;
+    padding-top: 15px;
+    padding-left: 15px;
+    background: #171C21;
+}
+.info {
+    background: #425059;
+    color: white;
+    width: 100%;
+    padding: 25px 30px;
+    text-align: center;
+    margin: auto;
+}
+.menu li,
+.button {
+    display: inline;
+    padding: 4px 6px;
+    border: 1px solid #777;
+    background: #ddd;
+    color: #d04;
+    margin-right: 8px;
+    border-radius: 5px;
+    -moz-box-shadow: 2px 2px 2px #888;
+    -webkit-box-shadow: 2px 2px 2px #888;
+    box-shadow: 2px 2px 2px #888;
+}
+.subhead {
+    font-weight: bold;
+}
+.taken,
+.error {
+    color: red;
+}
+.available {
+    color: green;
+}
+.whisper {
+    font-style: italic;
+    color: #006600;
+}
+#logo {
+    font-family: Georgia;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 97px;
+}
+.container-fluid {
+    width: 100%;
+    margin-top: 10%;
+}
+.content {
+    margin-left: auto;
+    margin-right: auto;
+}
+.login {
+    width: 40%;
+    background-color: #dddddd;
+}
+.members {
+  width: 80%;
+  background-color: #171d21;
+}
+.btn {
+    padding-bottom: 0px;
+    opacity: 0.8;
+    background-color: transparent;
+    color: white;
+}
+.btn:hover {
+    -webkit-transition: all 100ms ease-out 0.2s;
+    -moz-transition: all 100ms ease-out 0.2s;
+    -o-transition: all 100ms ease-out 0.2s;
+    transition: all 100ms ease-out 0.2s;
+    opacity: 1.0;
+}
+a {
+    color: white;
+    opacity: 0.7;
+}
+a:active {
+    border-radius: 1px;
+    opacity: 1.0;
+}
+a:hover {
+    opacity: 1.0;
+    color: white;
+    text-decoration: none;
+}
+.nav {
+    padding-top: 10px;
+    background-color: #171C21;
+}
+input {
+    color: #171C21;
+    background-color: #dddddd;
+    border: 1px;
+    border-color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 14pt;
+    float: right;
+}
+input[type="submit"] {
+    background-color: #db514a;
+    color: white;
+    width: 100%;
+}
+input[type="text"],
+input[type="password"] {
+    width: 80%;
+}
+.main {
+    text-align: center;
+}
+::-webkit-input-placeholder {
+    color: #171d21;
+}
+:-moz-placeholder {
+    color: #171d21;
+    opacity: 1;
+}
+::-moz-placeholder {
+    color: #171d21;
+    opacity: 1;
+}
+:-ms-input-placeholder {
+    color: #171d21;
+}
+:placeholder-shown {
+    color: #171d21;
+}
+
+.frm
+{
+  color: #171C21;
+  vertical-align: middle;
+  display: inline-block;
+  padding-top: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #db514a;
+}
