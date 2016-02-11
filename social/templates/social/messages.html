@@ -1,6 +1,7 @@
 {% extends "social/base.html" %}
 
 {% block content %}
+<div class="content messages">
 <div class='main'>
 {% if username = view %}
    <h3>Your Messages</h3>
@@ -24,14 +25,14 @@
 {% if messages %}
    {% for message in messages %}
    {% if message.pm or message.user.username = username or message.recip.username = username %}
-      {{ message.time }}: 
+      {{ message.time }}:
       <a href='/social/messages/?view={{message.user.username}}'>
          {{message.user.username}}
       </a>
       {% if message.pm %}
          wrote: "{{ message.text }}"
       {% else %}
-         whispered: <span class='whisper'>"{{ message.text }}"</span> 
+         whispered: <span class='whisper'>"{{ message.text }}"</span>
       {% endif %}
       {% if view = username %}
          [<a href='/social/messages/?view={{view}}&erase={{message.id}}'>erase</a>]
@@ -43,5 +44,6 @@
 <br><span class='info'>No messages yet</span><br><br>
 {% endif %}
 <br><a class='button' href='/social/messages/?view={{view}}'>Refresh messages</a></div><br>
+</div>
 </div>
 {% endblock %}

@@ -3,7 +3,7 @@
 {% load staticfiles%}
 
 {% block content %}
-<span class='info'>&#8658; You must be logged in to view this page.</span>
+<div class="content signup">
 <script src="{% static 'social/jquery-1.11.2.js' %}"></script>
 <script src="{% static 'social/ajax.js' %}"></script>
 <br>
@@ -18,7 +18,8 @@
     <span class='fieldname'>Password</span>
     <input type='text' maxlength='16' name='pass'><br>
     <span class='fieldname'>&nbsp;</span>
-    <input type='submit' value='Sign up'>
+    <input type='submit' value='SIGN UP'>
 </form>
+</div>
 </div>
 {% endblock %}
