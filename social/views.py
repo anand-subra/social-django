@@ -36,7 +36,7 @@ def register(request):
     p = request.POST['pass']
     user = Member(username=u, password=p)
     user.save()
-    template = loader.get_template('social/user-registered.html')    
+    template = loader.get_template('social/user-registered.html')
     context = RequestContext(request, {
         'appname': appname,
         'username' : u
@@ -66,7 +66,7 @@ def login(request):
                 'loggedin': True}
                 )
         else:
-            return HttpResponse("Wrong password") 
+            return HttpResponse("Wrong password")
 
 @loggedin
 def friends(request):
@@ -90,7 +90,7 @@ def friends(request):
 def logout(request):
     if 'username' in request.session:
         u = request.session['username']
-        request.session.flush()        
+        request.session.flush()
         template = loader.get_template('social/logout.html')
         context = RequestContext(request, {
                 'appname': appname,
@@ -133,19 +133,19 @@ def members(request):
     #Get list of all Members
     allMembers = Member.objects.all().filter()
 
-    # Go through all the friends and remove any duplicates - add more info here 
+    # Go through all the friends and remove any duplicates - add more info here
     for friend in allFriends:
-        allMembers = allMembers.exclude(pk = friend.friend2) 
+        allMembers = allMembers.exclude(pk = friend.friend2)
 
     allMembers = allMembers.exclude(pk=username)
 
     #Get list of pending friend requests
     pendingRequests = FriendRequests.objects.all().filter(recipient = member_obj, status = False)
 
-    #Change below variable name 
+    #Change below variable name
     allFriends2 = allFriends
 
-    #Suggested Friends 
+    #Suggested Friends
     suggestedFriends = []
 
     for friend in allFriends2:
@@ -163,11 +163,11 @@ def members(request):
         if(FriendRequests.objects.all().filter(sender = member_obj, recipient = friend_obj, status = False).count() == 0):
             FriendRequests(sender = member_obj, recipient = friend_obj, status = False).save()
 
-    # Approve a Friend Request  
+    # Approve a Friend Request
     if 'approveFriendRequest' in request.GET:
         friend = request.GET['approveFriendRequest']
         friend_obj = Member.objects.get(pk=friend)
-        #Check if they are friends allready 
+        #Check if they are friends allready
         if(Friends.objects.all().filter(friend1 = member_obj, friend2 = friend_obj).count() == 0):
             req_obj = FriendRequests.objects.get(sender = friend_obj, recipient = member_obj)
             req_obj.status = True
@@ -256,12 +256,12 @@ def checkuser(request):
         except Member.DoesNotExist:
             member = None
         if member is not None:
-            return HttpResponse("<span class='taken'>&nbsp;&#x2718; This username is taken</span>")
+            return HttpResponse("<span class='taken'>&#x2718;</span>")
         else:
-            return HttpResponse("<span class='available'>&nbsp;&#x2714; This username is available</span>")
+            return HttpResponse("<span class='available'>&#x2714;</span>")
 
 def searchStatus(request):
-    #Get all members 
+    #Get all members
     allMembers = Member.objects.all().filter()
     statuss = []
 
@@ -271,9 +271,7 @@ def searchStatus(request):
     for currentMember in allMembers:
         if search_text in currentMember.username:
             statuss.append(currentMember.username)
-    
+
     #statuss = search_text
 
     return render(request, 'social/test.html', {'statuss':statuss})
-
-

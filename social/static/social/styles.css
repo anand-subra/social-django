@@ -11,7 +11,6 @@ body {
 }
 html {
     background: url(../../static/social/background.jpg) no-repeat center center fixed;
-    ;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -35,12 +34,13 @@ li a:hover,
 .appname {
     color: #FFF;
     font-family: 'Quicksand', sans-serif;
-    ;
     font-size: 14pt;
     padding-top: 15px;
     padding-left: 15px;
     background: #171C21;
 }
+
+
 .info {
     background: #425059;
     color: white;
@@ -151,6 +151,14 @@ input[type="submit"] {
     background-color: #db514a;
     color: white;
     width: 100%;
+    opacity: 0.85;
+}
+input[type="submit"]:hover{
+    opacity: 1.0;
+    -webkit-transition: all 100ms ease-out 0.1s;
+    -moz-transition: all 100ms ease-out 0.1s;
+    -o-transition: all 100ms ease-out 0.1s;
+    transition: all 100ms ease-out 0.1s;
 }
 input[type="text"],
 input[type="password"] {
