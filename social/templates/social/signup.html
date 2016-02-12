@@ -6,19 +6,32 @@
 <div class="content signup">
 <script src="{% static 'social/jquery-1.11.2.js' %}"></script>
 <script src="{% static 'social/ajax.js' %}"></script>
-<br>
-<br>
-<div class='main'><h3>Please enter your details to sign up</h3>
-<form method='POST' action="/social/register/">
+<div class='main'>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 text-center">
+			<div class='info'>Please enter your details to sign up</div>
+		</div>
+	</div>
+	<br><br>
+<form method='POST' action='/social/register/'>
 	{% csrf_token %}
-    <span class='fieldname'>Username</span>
-    <input type='text' maxlength='16' id='user' name='user'>
-    <span id='info'></span>
-    <br>
-    <span class='fieldname'>Password</span>
-    <input type='text' maxlength='16' name='pass'><br>
-    <span class='fieldname'>&nbsp;</span>
-    <input type='submit' value='SIGN UP'>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 text-center">
+			<span class='glyphicon glyphicon-user frm'></span>
+			<input type='text' maxlength='16' id='user' name='user' placeholder='Username' alt="">
+			<span id='info'></span>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 text-center">
+			<span class='glyphicon glyphicon-lock frm'></span>
+			<input type='password' maxlength='16' name='pass' placeholder='Password'><br>
+		</div>
+	</div>
+	<hr>
+	<br><br><br>
+	<input type='submit' value='SIGN UP'>
 </form>
 </div>
 </div>
