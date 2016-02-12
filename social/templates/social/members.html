@@ -1,6 +1,7 @@
 {% extends "social/base.html" %}
 
 {% block content %}
+<div class="content members">
 <div class='main'>
 <h3>All Members</h3>
 <table style="width:100%">
@@ -76,4 +77,5 @@ function searchSuccess(data, textStatus, jqXHR)
     $('#search-results').html(data)
 }
 </script>
+</div>
 {% endblock %}
