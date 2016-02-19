@@ -2,80 +2,119 @@
 
 {% block content %}
 <div class="content members">
-<div class='main'>
-<h3>All Members</h3>
-<table style="width:100%">
-{% for member in allMembers %}
-	<tr>
-	<td>{{member}}<td>
-	<td><a href="?sendFriendRequest={{ member.username }}">Send Friend Request</a></td>
-	<tr>
-{% endfor %}
+	<div class='main'>
+		<h2>Members</h2>
 
-</table>
 
-<h3>All Friends</h3>
-<table style="width:100%">
-{% for friend in allFriends %}
-	<tr>
-	<td>{{friend.friend2}}<td>
-	<td><a href="?sendFriendRequest={{ member.username }}">Delete</a></td>
-	<tr>
-{% endfor %}
-</table>
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#allfriends">All Friends</a></li>
+			<li><a data-toggle="tab" href="#suggfriends">Suggested</a></li>
+			<li><a data-toggle="tab" href="#friendreqs">Requests</a></li>
+			<li id="search-tab"><a data-toggle="tab" id="searchfriendstab" href="#searchfriends"><span class="glyphicon glyphicon-search"></span> <input type="text" id="search" name="search" placeholder="Search a member" /> </a></li>
+		</ul>
 
-<h3>Suggested Friends</h3>
-<table style="width:100%">
-{% for suggestedFriend in suggestedFriends %}
-		<tr>
-		<td>{{suggestedFriend.friend2}}<td>
-		<td><a href="?approveFriendRequest={{ request.sender }}">Approve</a></td>
-		<tr>
-{% endfor %}
-</table>
+		<div class="tab-content">
 
-<h3>Pending Requests</h3>
-<table style="width:100%">
-{% for request in pendingRequests %}
-	<tr>
-	<td>{{request.sender}}<td>
-	<td><a href="?approveFriendRequest={{ request.sender }}">Approve</a></td>
-	<tr>
-{% endfor %}
-</table>
+			<div id="allfriends" class="tab-pane fade in active">
+				<br>
+				<div class="row">
+					{% for friend in allFriends %}
+					<div class=" col-lg-4 col-md-6 col-sm-6">
+						<div class="friend-entry">
+							<h3 class="friend-name"><a href="/social/members/?view={{friend.friend2}}">{{friend.friend2}}</a> <a href="?sendFriendRequest={{member.username}}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a><h3>
+							</div>
+							<br>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
 
-<br>
-</div>
 
-<input type="text" id="search" name="search" placeholder="Search friends" />
-    <ul id="search-results">
-    </ul>
 
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+				<div id="suggfriends" class="tab-pane fade in">
 
-<script>
-$(function() {
+					<br>
+					<div class="row">
+						{% for suggestedFriend in suggestedFriends %}
+						<div class=" col-lg-4 col-md-6 col-sm-6">
+							<div class="friend-entry">
+								<h3 class="friend-name"><a href="/social/members/?view={{suggestedFriend.friend2}}">{{suggestedFriend.friend2}}</a> <a href="?approveFriendRequest={{request.sender}}"> <span class="glyphicon glyphicon-thumbs-up friend-stat-glyph"></span> </a><h3>
+								</div>
+								<br>
+							</div>
+							{% endfor %}
+						</div>
 
-    $('#search').keyup(function() {
+							</div>
 
-        $.ajax({
-            type: "GET",
-            url: "search",
-            data: {
-                'search_text' : $('#search').val(),
-                'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
-            },
-            success: searchSuccess,
-            dataType: 'html'
-        });
-    });
-});
 
-function searchSuccess(data, textStatus, jqXHR)
-{
-    $('#search-results').html(data)
-}
-</script>
-</div>
-{% endblock %}
+
+							<div id="friendreqs" class="tab-pane fade">
+
+								<br>
+								<div class="row">
+									{% for request in pendingRequests %}
+									<div class=" col-lg-4 col-md-6 col-sm-6">
+										<div class="friend-entry">
+											<h3 class="friend-name"><a href="/social/members/?view={{request.sender}}">{{request.sender}}</a> <a href="approveFriendRequest={{request.sender}}"> <span class="glyphicon glyphicon-thumbs-up friend-stat-glyph"></span> </a><h3>
+											</div>
+											<br>
+										</div>
+										{% endfor %}
+									</div>
+										</div>
+
+
+										<div id="searchfriends" class="tab-pane fade">
+
+
+
+											<div id="search-results">
+											</div>
+
+
+
+										</div>
+
+
+
+									</div>
+
+									<!-- <h3>All Members</h3>
+									<table style="width:100%">
+									{% for member in allMembers %}
+									<tr>
+									<td>{{member}}<td>
+									<td><a href="?sendFriendRequest={{ member.username }}">Send Friend Request</a></td>
+									<tr>
+									{% endfor %}
+
+								</table> -->
+
+
+								<script>
+								$(function() {
+
+									$('#search').keyup(function() {
+
+										$.ajax({
+											type: "GET",
+											url: "search",
+											data: {
+												'search_text' : $('#search').val(),
+												'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+											},
+											success: searchSuccess,
+											dataType: 'html'
+										});
+									});
+								});
+
+								function searchSuccess(data, textStatus, jqXHR)
+								{
+									$('#search-results').html(data)
+								}
+								</script>
+
+							</div>
+							{% endblock %}

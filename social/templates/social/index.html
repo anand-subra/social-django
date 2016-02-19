@@ -2,17 +2,25 @@
 
 {% block content %}
 <div class='content index'>
-<span class='info'>You must be logged in to view this page.</span>
 <br>
-<br>
-<br>
+
 <span class='main'>
-	<p>Welcome to</p>
-	<br>
-	<span class='appname'>{{ appname }}</span>
-	<br><br>
-	<p>please sign up and/or log in to join in.</p>
-</span>
-<br>
+
+	<div class="jumbotron">
+		<h2>Welcome to</h2>
+	  <h1>{{ appname }}</h1>
+		<p>The minimalist social-network</p>
+		<br><br>
+			<br>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 text-right">
+		<a href="/social/login/"> <button class="loginout">LOGIN</button></a>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 text-left">
+		<a href="/social/signup/"> <button class="loginout">SIGN UP</button></a>
+	</div>
+		</div>
+	</div>
+
 </div>
 {% endblock %}

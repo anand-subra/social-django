@@ -29,7 +29,7 @@ li a,
 }
 li a:hover,
 .button:hover {
-    color: green;
+color: #db514a;
 }
 .appname {
     color: #FFF;
@@ -94,17 +94,33 @@ li a:hover,
     width: 40%;
     background-color: #dddddd;
 }
-.members, .friends, .member, .messages, .profile {
+.friends, .member, .messages, .profile {
   width: 80%;
   background-color: #171d21;
+}
+.members{
+  width: 80%;
+  background-color: #171d21;
+  height: 60vh;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
 }
 .checkuser, .not-logged-in{
   width: 40%;
   background-color: #171d21;
 }
-.index, .logout, .user-registered{
-  width: 60%;
+.logout, .user-registered{
+  width: 70%;
   background-color: #171d21;
+  text-align: center;
+}
+.index{
+  width: 70%;
+  background-color: #171d21
+}
+.jumbotron{
+  background-color: inherit;
   text-align: center;
 }
 .btn {
@@ -122,7 +138,7 @@ li a:hover,
 }
 a {
     color: white;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 a:active {
     border-radius: 1px;
@@ -195,4 +211,107 @@ input[type="password"] {
 
 h1, h2, h3, h4, h5, h6 {
   color: #db514a;
+}
+.loginout {
+  font-size: 120%;
+  border-style: none;
+  background-color: #db514a;
+  color: white;
+  width: 40%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.friend-entry{
+  position: relative;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgba(255,255,255,0.1);
+}
+.friend-name{
+  text-align: left;
+  padding-left: 15px;
+}
+
+.friend-stat-glyph{
+  padding-right: 15px;
+  float: right;
+  vertical-align: middle;
+  color:white;
+  font-size: inherit;
+}
+
+h3 a{
+  color: inherit;
+  font-size: inherit;
+}
+h3 a:hover{
+  color: inherit;
+}
+
+#search{
+  color: white !important;
+  background-color: transparent;
+  padding: 0px 0px 0px 0px;
+  float: none;
+  font-size: inherit;
+}
+#search::-webkit-input-placeholder:active{
+  color: white;
+  opacity: 0.8;
+}
+#search::-webkit-input-placeholder {
+    color: white !important;
+    opacity: 0.8;
+}
+#search::-moz-placeholder{
+    color: white !important;
+    opacity: 0.8;
+}
+#search::-moz-placeholder {
+    ccolor: white !important;
+    opacity: 0.8;
+}
+#search:-ms-input-placeholder {
+    color: white !important;
+    opacity: 0.8;
+}
+#search:placeholder-shown {
+    color: white !important;
+}
+
+li#search-tab > a:hover, li#search-tab > a:focus, li#search-tab > a {
+  background-color: transparent;
+  border-style: none;
+}
+
+.nav-tabs > li > a:hover{
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.glyphicon-search{
+  float:left;
+  padding-top: 2px;
+}
+
+.glyphicon-remove-circle:hover{
+  color: #cb302a;
+  -webkit-transition: all 100ms ease-out 0.2s;
+  -moz-transition: all 100ms ease-out 0.2s;
+  -o-transition: all 100ms ease-out 0.2s;
+  transition: all 100ms ease-out 0.2s;
+}
+
+.glyphicon-thumbs-up:hover{
+  color: #3870c9;
+  -webkit-transition: all 100ms ease-out 0.2s;
+  -moz-transition: all 100ms ease-out 0.2s;
+  -o-transition: all 100ms ease-out 0.2s;
+  transition: all 100ms ease-out 0.2s;
+}
+
+#search-results{
+  color: red;
 }

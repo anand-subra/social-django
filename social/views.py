@@ -260,6 +260,18 @@ def checkuser(request):
         else:
             return HttpResponse("<span class='available'>&#x2714;</span>")
 
+def checkuser(request):
+    if 'user' in request.POST:
+        u = request.POST['user']
+        try:
+            member = Member.objects.get(pk=u)
+        except Member.DoesNotExist:
+            member = None
+        if member is not None:
+            return HttpResponse("<span class='taken'>&#x2718;</span>")
+        else:
+            return HttpResponse("<span class='available'>&#x2714;</span>")
+
 def searchStatus(request):
     #Get all members
     allMembers = Member.objects.all().filter()
