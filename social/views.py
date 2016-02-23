@@ -142,6 +142,9 @@ def members(request):
     #Get list of pending friend requests
     pendingRequests = FriendRequests.objects.all().filter(recipient = member_obj, status = False)
 
+    #Get a list of all the friend requets that have been sent
+    sentRequests = FriendRequests.objects.all().filter(sender = member_obj, status = False)
+
     #Change below variable name
     allFriends2 = allFriends
 
@@ -163,6 +166,17 @@ def members(request):
         if(FriendRequests.objects.all().filter(sender = member_obj, recipient = friend_obj, status = False).count() == 0):
             FriendRequests(sender = member_obj, recipient = friend_obj, status = False).save()
 
+     #Delete Friend
+    if 'deleteFriend' in request.GET:
+        friend = request.GET['deleteFriend']
+        friend_obj = Member.objects.get(pk=friend)
+        
+        relationship1 = Friends.objects.get(friend1 = member_obj, friend2 = friend_obj)
+        relationship2 = Friends.objects.get(friend1 = friend_obj, friend2 = member_obj)
+
+        relationship1.delete()
+        relationship2.delete()
+
     # Approve a Friend Request
     if 'approveFriendRequest' in request.GET:
         friend = request.GET['approveFriendRequest']
@@ -171,9 +185,9 @@ def members(request):
         if(Friends.objects.all().filter(friend1 = member_obj, friend2 = friend_obj).count() == 0):
             req_obj = FriendRequests.objects.get(sender = friend_obj, recipient = member_obj)
             req_obj.status = True
-            req_obj.save()
             Friends(friend1 = member_obj, friend2 = friend_obj).save()
             Friends(friend2 = member_obj, friend1 = friend_obj).save()
+            req_obj.delete()
 
     # view user profile
     if 'view' in request.GET:
@@ -186,6 +200,7 @@ def members(request):
             'allFriends': allFriends,
             'allMembers': allMembers,
             'pendingRequests': pendingRequests,
+            'sentRequests' : sentRequests,
             'suggestedFriends': suggestedFriends,
             'loggedin': True}
             )
@@ -273,6 +288,9 @@ def checkuser(request):
             return HttpResponse("<span class='available'>&#x2714;</span>")
 
 def searchStatus(request):
+    username = request.session['username']
+    user = Member.objects.get(pk=username)
+
     #Get all members
     allMembers = Member.objects.all().filter()
     statuss = []
@@ -284,6 +302,10 @@ def searchStatus(request):
         if search_text in currentMember.username:
             statuss.append(currentMember.username)
 
-    #statuss = search_text
+    statuss.remove(user.username)
+
+    #If the search is blank then we return an empty array
+    if search_text == "":
+        statuss = []
 
     return render(request, 'social/test.html', {'statuss':statuss})

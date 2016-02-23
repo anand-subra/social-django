@@ -8,6 +8,7 @@
 
 		<ul class="nav nav-tabs">
 			<li class="active"><a data-toggle="tab" href="#allfriends">All Friends</a></li>
+			<li><a data-toggle="tab" href="#allmembers">All Members</a></li>
 			<li><a data-toggle="tab" href="#suggfriends">Suggested</a></li>
 			<li><a data-toggle="tab" href="#friendreqs">Requests</a></li>
 			<li id="search-tab"><a data-toggle="tab" id="searchfriendstab" href="#searchfriends"><span class="glyphicon glyphicon-search"></span> <input type="text" id="search" name="search" placeholder="Search a member" /> </a></li>
@@ -21,7 +22,7 @@
 					{% for friend in allFriends %}
 					<div class=" col-lg-4 col-md-6 col-sm-6">
 						<div class="friend-entry">
-							<h3 class="friend-name"><a href="/social/members/?view={{friend.friend2}}">{{friend.friend2}}</a> <a href="?sendFriendRequest={{member.username}}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a><h3>
+							<h3 class="friend-name"><a href="/social/members/?view={{friend.friend2}}">{{friend.friend2}}</a> <a href="?deleteFriend={{ friend.friend2 }}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a><h3>
 							</div>
 							<br>
 						</div>
@@ -29,6 +30,19 @@
 					</div>
 				</div>
 
+			<div id="allmembers" class="tab-pane fade in">
+				<br>
+				<div class="row">
+					{% for member in allMembers %}
+					<div class=" col-lg-4 col-md-6 col-sm-6">
+						<div class="friend-entry">
+							<h3 class="friend-name"><a href="/social/members/?view={{friend.friend2}}">{{member.username}}</a> <a href="?sendFriendRequest={{ member.username }}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a><h3>
+							</div>
+							<br>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
 
 
 				<div id="suggfriends" class="tab-pane fade in">
@@ -53,44 +67,40 @@
 
 								<br>
 								<div class="row">
+									<!--Pendign requests to approve-->
+									Pending Requests
+									<br>
 									{% for request in pendingRequests %}
 									<div class=" col-lg-4 col-md-6 col-sm-6">
 										<div class="friend-entry">
-											<h3 class="friend-name"><a href="/social/members/?view={{request.sender}}">{{request.sender}}</a> <a href="approveFriendRequest={{request.sender}}"> <span class="glyphicon glyphicon-thumbs-up friend-stat-glyph"></span> </a><h3>
-											</div>
-											<br>
+											<h3 class="friend-name"><a href="/social/members/?view={{request.sender}}">{{request.sender}}</a> <a href="?approveFriendRequest={{request.sender}}"> <span class="glyphicon glyphicon-thumbs-up friend-stat-glyph"></span> </a><h3>
 										</div>
-										{% endfor %}
+										<br>
 									</div>
-										</div>
-
-
-										<div id="searchfriends" class="tab-pane fade">
-
-
-
-											<div id="search-results">
-											</div>
-
-
-
-										</div>
-
-
-
-									</div>
-
-									<!-- <h3>All Members</h3>
-									<table style="width:100%">
-									{% for member in allMembers %}
-									<tr>
-									<td>{{member}}<td>
-									<td><a href="?sendFriendRequest={{ member.username }}">Send Friend Request</a></td>
-									<tr>
 									{% endfor %}
-
-								</table> -->
-
+									<!--Sent Friend Requests-->
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									Sent Requests
+									<br>
+									{% for sent in sentRequests %}
+									<div class=" col-lg-4 col-md-6 col-sm-6">
+										<div class="friend-entry">
+											<h3 class="friend-name"><a href="/social/members/?view={{request.recipient}}">{{sent.recipient}}</a> <a href="?approveFriendRequest={{request.sender}}"> <span class="glyphicon glyphicon-thumbs-up friend-stat-glyph"></span> </a><h3>
+										</div>
+										<br>
+									</div>
+									{% endfor %}
+								</div>
+								</div>
+									<div id="searchfriends" class="tab-pane fade">
+										<div id="search-results">
+										</div>
+									</div>
+								</div>
 
 								<script>
 								$(function() {
@@ -108,6 +118,12 @@
 											dataType: 'html'
 										});
 									});
+								});
+
+								$(document).ready(function(){
+								    $(".btn").click(function(){
+								       location.reload();
+								    });
 								});
 
 								function searchSuccess(data, textStatus, jqXHR)
