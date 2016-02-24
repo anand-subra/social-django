@@ -39,6 +39,20 @@
 
 		{% block content %}
 		{% endblock %}
+
+		<script>
+		$(".friend-entry").each(function() {
+			var random1 = Math.floor(Math.random() * 255);
+			var random2 = Math.floor(Math.random() * 255);
+			var random3 = Math.floor(Math.random() * 255);
+
+			var colourIndex = Math.floor(Math.random() * 6);
+			var colourArray = ["#777777","#337ab7","#5bb85c","#5bc0de","#f0ad4e","#d9534e"];
+
+			this.style.backgroundColor = colourArray[colourIndex];
+		});
+		</script>
+		
 	</div>
 </body>
 </html>

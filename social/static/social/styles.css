@@ -10,11 +10,8 @@ body {
     font-family: 'PT Sans Caption', sans-serif;
 }
 html {
-    /*background: url(../../static/social/background.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;*/
+    overflow-x: hidden;
+    overflow-y: hidden;
     background-color: #171d21;
 }
 img {
@@ -29,7 +26,7 @@ li a,
     text-decoration: none;
 }
 li a:hover {
-color: #db514a;
+    color: #db514a;
 }
 .appname {
     color: #FFF;
@@ -39,8 +36,6 @@ color: #db514a;
     padding-left: 15px;
     background: #171d21;
 }
-
-
 .info {
     background: #425059;
     color: white;
@@ -49,7 +44,7 @@ color: #db514a;
     text-align: center;
     margin: auto;
 }
-.menu li{
+.menu li {
     display: inline;
     padding: 4px 6px;
     border: 1px solid #777;
@@ -89,37 +84,43 @@ color: #db514a;
     margin-left: auto;
     margin-right: auto;
 }
-.login, .signup {
+.login,
+.signup {
     width: 40%;
     background-color: #dddddd;
 }
-.friends, .member, .messages, .profile {
-  width: 80%;
-  background-color: #171d21;
+.friends,
+.member,
+.messages,
+.profile {
+    width: 80%;
+    background-color: #171d21;
 }
-.members{
-  width: 80%;
-  background-color: #171d21;
-  height: 60vh;
-  padding-left: 10px;
-  padding-right: 10px;
+.members {
+    width: 80%;
+    background-color: #171d21;
+    height: 60vh;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-.checkuser, .not-logged-in{
-  width: 40%;
-  background-color: #171d21;
+.checkuser,
+.not-logged-in {
+    width: 40%;
+    background-color: #171d21;
 }
-.logout, .user-registered{
-  width: 70%;
-  background-color: #171d21;
-  text-align: center;
+.logout,
+.user-registered {
+    width: 70%;
+    background-color: #171d21;
+    text-align: center;
 }
-.index{
-  width: 70%;
-  background-color: #171d21
+.index {
+    width: 70%;
+    background-color: #171d21
 }
-.jumbotron{
-  background-color: inherit;
-  text-align: center;
+.jumbotron {
+    background-color: inherit;
+    text-align: center;
 }
 .btn {
     padding-bottom: 0px;
@@ -167,7 +168,7 @@ input[type="submit"] {
     width: 100%;
     opacity: 0.85;
 }
-input[type="submit"]:hover{
+input[type="submit"]:hover {
     opacity: 1.0;
     -webkit-transition: all 100ms ease-out 0.1s;
     -moz-transition: all 100ms ease-out 0.1s;
@@ -198,72 +199,71 @@ input[type="password"] {
 :placeholder-shown {
     color: #171d21;
 }
-
-.frm
-{
-  color: #171C21;
-  vertical-align: middle;
-  display: inline-block;
-  padding-top: 20px;
+.frm {
+    color: #171C21;
+    vertical-align: middle;
+    display: inline-block;
+    padding-top: 20px;
 }
-
-h1, h2, h3, h4, h5, h6 {
-  color: #db514a;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #db514a;
 }
-.loginout, .button {
-  font-size: 120%;
-  border-style: none;
-  background-color: #db514a;
-  color: white;
-  width: 40%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+.loginout,
+.button {
+    font-size: 120%;
+    border-style: none;
+    background-color: #db514a;
+    color: white;
+    width: 40%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-
-.friend-entry{
-  position: relative;
-  width: 100%;
-  padding-top: 5px;
-  padding-bottom: 5px;
+.friend-entry {
+    position: relative;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
-.friend-name{
-  text-align: left;
-  padding-left: 15px;
-  color: white;
+.friend-name {
+    text-align: left;
+    padding-left: 15px;
+    color: white;
 }
-
-.friend-stat-glyph{
-  padding-right: 15px;
-  float: right;
-  vertical-align: middle;
-  color:white;
-  font-size: inherit;
+.friend-stat-glyph {
+    padding-right: 15px;
+    float: right;
+    vertical-align: middle;
+    color: white;
+    font-size: inherit;
 }
-
-h3 a{
-  color: inherit;
-  font-size: inherit;
+h3 a {
+    color: inherit;
+    font-size: inherit;
 }
-h3 a:hover{
-  color: inherit;
+h3 a:hover {
+    color: inherit;
 }
-
-#search{
-  color: white !important;
-  background-color: transparent;
-  padding: 0px 0px 0px 0px;
-  float: none;
-  font-size: inherit;
+#search {
+    color: white !important;
+    background-color: transparent;
+    padding: 0px 0px 0px 0px;
+    float: none;
+    font-size: inherit;
 }
-#search::-webkit-input-placeholder:active{
-  color: white;
-  opacity: 0.8;
+#search::-webkit-input-placeholder:active {
+    color: white;
+    opacity: 0.8;
 }
 #search::-webkit-input-placeholder {
     color: white !important;
     opacity: 0.8;
 }
-#search::-moz-placeholder{
+#search::-moz-placeholder {
     color: white !important;
     opacity: 0.8;
 }
@@ -278,114 +278,123 @@ h3 a:hover{
 #search:placeholder-shown {
     color: white !important;
 }
-
-li#search-tab > a:hover, li#search-tab > a:focus, li#search-tab > a {
-  background-color: transparent;
-  border-style: none;
+li#search-tab > a:hover,
+li#search-tab > a:focus,
+li#search-tab > a {
+    background-color: transparent;
+    border-style: none;
 }
-
-.nav-tabs > li > a:hover{
-  background-color: transparent;
-  border-color: transparent;
+.nav-tabs > li > a:hover {
+    background-color: transparent;
+    border-color: transparent;
 }
-
-.glyphicon-search{
-  float:left;
-  padding-top: 2px;
+.glyphicon-search {
+    float: left;
+    padding-top: 2px;
 }
-
-.glyphicon-remove-circle:hover{
-  color: #cb302a;
-  -webkit-transition: all 100ms ease-out 0.2s;
-  -moz-transition: all 100ms ease-out 0.2s;
-  -o-transition: all 100ms ease-out 0.2s;
-  transition: all 100ms ease-out 0.2s;
+.glyphicon-remove-circle:hover {
+    color: #cb302a;
+    -webkit-transition: all 100ms ease-out 0.2s;
+    -moz-transition: all 100ms ease-out 0.2s;
+    -o-transition: all 100ms ease-out 0.2s;
+    transition: all 100ms ease-out 0.2s;
 }
-
-.glyphicon-thumbs-up:hover{
-  color: #3870c9;
-  -webkit-transition: all 100ms ease-out 0.2s;
-  -moz-transition: all 100ms ease-out 0.2s;
-  -o-transition: all 100ms ease-out 0.2s;
-  transition: all 100ms ease-out 0.2s;
+.glyphicon-thumbs-up:hover {
+    color: #3870c9;
+    -webkit-transition: all 100ms ease-out 0.2s;
+    -moz-transition: all 100ms ease-out 0.2s;
+    -o-transition: all 100ms ease-out 0.2s;
+    transition: all 100ms ease-out 0.2s;
 }
-
-.glyphicon-plus:hover{
-  color: #64c535;
-  -webkit-transition: all 100ms ease-out 0.2s;
-  -moz-transition: all 100ms ease-out 0.2s;
-  -o-transition: all 100ms ease-out 0.2s;
-  transition: all 100ms ease-out 0.2s;
+.glyphicon-plus:hover {
+    color: #64c535;
+    -webkit-transition: all 100ms ease-out 0.2s;
+    -moz-transition: all 100ms ease-out 0.2s;
+    -o-transition: all 100ms ease-out 0.2s;
+    transition: all 100ms ease-out 0.2s;
 }
-
-#search-results{
-  color: red;
+#search-results {
+    color: red;
 }
-
-#reqheadings{
-  float: left;
+#reqheadings {
+    float: left;
 }
-.profile-entries{
-  overflow: scroll;
-  height: 100px;
+.profile-entries {
+    overflow: scroll;
+    height: 220px;
 }
-.nav-tabs{
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);;
+.profile-entries-long {
+    overflow: scroll;
+    height: 500px;
 }
-
-.button{
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 100%;
-  opacity: 0.85;
+.nav-tabs {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    ;
 }
-.button:hover{
-  opacity: 1.0;
-  -webkit-transition: all 100ms ease-out 0.2s;
-  -moz-transition: all 100ms ease-out 0.2s;
-  -o-transition: all 100ms ease-out 0.2s;
-  transition: all 100ms ease-out 0.2s;
+.button {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 100%;
+    opacity: 0.85;
 }
-.msgbox{
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+.button:hover {
+    opacity: 1.0;
+    -webkit-transition: all 100ms ease-out 0.2s;
+    -moz-transition: all 100ms ease-out 0.2s;
+    -o-transition: all 100ms ease-out 0.2s;
+    transition: all 100ms ease-out 0.2s;
 }
-.msg-form-controls{
-  padding-right: 0px;
-  padding-left: 0px;
-  font-size: 100%;
+.msgbox {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
-.msg-chat-text{
-  width: 75% !important;
-  padding-right: 0px !important;
-  padding-left: 10px !important;
-  float: left;
+.msg-form-controls {
+    padding-right: 0px;
+    padding-left: 0px;
+    font-size: 100%;
 }
-.msg-privacy{
-  width: 10% !important;
-  float: left;
-  vertical-align: middle;
-  padding: 2px 5px 1px 0px;
-  background-color: #222c31;
+.msg-chat-text {
+    width: 70% !important;
+    padding-right: 0px !important;
+    padding-left: 10px !important;
+    float: left;
 }
-.msg-chat-send{
-  width: 15% !important;
-  padding-left: 0px !important;
-  float: right;
+.msg-privacy {
+    width: 10% !important;
+    float: left;
+    vertical-align: middle;
+    padding: 2px 5px 1px 0px;
+    background-color: #222c31;
 }
-.chat-feed{
-  height: 600px;
-  background-color: #232c31;
-  overflow: scroll;
-  max-width: 100%;
+.msg-chat-send {
+    width: 15% !important;
+    height: 100%;
+    padding-left: 0px !important;
+    float: right;
+}
+.msg-chat-refresh {
+    width: 5% !important;
+    background-color: #db514a;
+    opacity: 0.85;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 0px !important;
+    float: right;
+}
+.msg-chat-refresh:hover {
+    opacity: 1.0;
+}
+.chat-feed {
+    height: 600px;
+    background-color: #232c31;
+    overflow: scroll;
+    max-width: 100%;
     overflow-x: hidden;
 }
-
 .bubble-left {
     position: relative;
     width: 30%;
-    height: 100px;
     padding: 10px;
     left: 20px;
     background: #BE4944;
@@ -394,7 +403,7 @@ li#search-tab > a:hover, li#search-tab > a:focus, li#search-tab > a {
     border-radius: 10px;
     text-align: left;
 }
-  .bubble-left:after {
+.bubble-left:after {
     content: "";
     position: absolute;
     top: 15px;
@@ -406,11 +415,9 @@ li#search-tab > a:hover, li#search-tab > a:focus, li#search-tab > a {
     width: 0;
     z-index: 1;
 }
-
 .bubble-right {
     position: relative;
     width: 30%;
-    height: 100px;
     padding: 10px;
     right: 20px;
     background: #485661;
@@ -419,43 +426,48 @@ li#search-tab > a:hover, li#search-tab > a:focus, li#search-tab > a {
     border-radius: 10px;
     text-align: right;
     float: right;
+    display: block;
 }
-
 .bubble-right:after {
-  content: "";
-  position: absolute;
-  top: 15px;
-  right: -15px;
-  border-style: solid;
-  border-width: 8px 0 8px 16px;
-  border-color: transparent #485661;
-  display: block;
-  width: 0;
-  z-index: 1;
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: -15px;
+    border-style: solid;
+    border-width: 8px 0 8px 16px;
+    border-color: transparent #485661;
+    display: block;
+    width: 0;
+    z-index: 1;
 }
-
-.msg-time, .msg-remove{
-  font-size:70%;
-  position: absolute;
+.msg-time,
+.msg-remove {
+    font-size: 70%;
+    position: absolute;
 }
-
-.msg-time{
-left: 5px;
-bottom: 5px;
+.msg-time {
+    left: 5px;
+    bottom: 5px;
 }
-
-.msg-remove{
-right: 5px;
-bottom: 2px;
+.msg-remove {
+    right: 5px;
+    bottom: 2px;
 }
-.profilestatus{
-  font-size: 14pt;
+.profilestatus {
+    font-size: 14pt;
 }
-.glyphicon-eye-close,.glyphicon-eye-open{
-  opacity: 0.9;
-  font-size: 100%;
-  padding-top: 5px;
+.glyphicon-eye-close,
+.glyphicon-eye-open {
+    opacity: 0.9;
+    font-size: 100%;
+    padding-top: 5px;
 }
-.msg-none{
-  color: #485661;
+.msg-none {
+    color: #485661;
+}
+.msg-content {
+    font-size: 90%;
+}
+.msg-name {
+    text-decoration: underline;
 }
