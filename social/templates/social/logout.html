@@ -1,15 +1,9 @@
 {% extends "social/base.html" %}
 
 {% block content %}
-<div class="content logout">
-<span class='info'>You must be logged in to view this page.</span>
-<br>
-<br>
-<div class='main'>
-    You have been logged out. <br>
-    Please <a style="text-decoration: underline;" href='/social/'>click here</a> to refresh the screen.
-    <br>
-    <br>
-</div>
-</div>
+<script>
+setTimeout(function () {
+  window.location.href = "/social/";
+}, 0);
+</script>
 {% endblock %}
