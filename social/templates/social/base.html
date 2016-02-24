@@ -16,16 +16,14 @@
 	<div class="container-fluid">
 		<script src="{% static 'social/scripts.js' %}"></script>
 				{% if loggedin %}
-				<div class="row nav nav-pills navbar-fixed-top">
-					<div class="col-lg-4 col-md-4 col-sm-4">
+				<div class="nav nav-pills navbar-fixed-top">
+					<div class="row">
+
+					<div class="col-lg-2 col-md-2 col-sm-2">
 					<div class='appname text-left'><a class="profilestatus" href='/social/members/?view={{ username }}'>{{ username }}</a></div>
 				</div>
-			{% endif %}
-
-
-			<div class="col-lg-8 col-md-8 col-sm-8">
+			<div class="col-lg-10 col-md-10 col-sm-10">
 				<ul class='text-right'>
-					{% if loggedin %}
 					<button class="btn"><a href='/social/members/?view={{ username }}'> <span class="glyphicon glyphicon-home"></span><p>Home</p></a></button>
 					<button class="btn"><a href='/social/members/'><span class="glyphicon glyphicon-globe"></span><p>Members</p></a></button>
 					<button class="btn"><a href='/social/messages/'><span class="glyphicon glyphicon-envelope"></span><p>Messages</p></a></button>
@@ -33,8 +31,9 @@
 					<button class="btn"><a href='/social/logout/'><span class="glyphicon glyphicon-log-out"></span><p>Log out</p></a></button></ul>
 					{% endif %}
 				</ul>
-
 			</div>
+			</div>
+
 		</div>
 
 		{% block content %}
@@ -52,7 +51,7 @@
 			this.style.backgroundColor = colourArray[colourIndex];
 		});
 		</script>
-		
+
 	</div>
 </body>
 </html>

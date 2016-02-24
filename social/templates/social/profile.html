@@ -4,17 +4,42 @@
 <div class="content profile">
   <div class='main'>
 
-    {% if text %}
-    <h2>{{username}}</h2>
-    {{ text }} <br style='clear:left;'><br>
-    {% endif %}
-    <form method='POST' action='/social/profile/' enctype='multipart/form-data'>
+    <h2>Profile</h2>
+    <br><br>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h1 class="profile-header friend-entry">{{username}}</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <br>
+        <div class="profile-status">
+          {% if text %}
+          <span class="quote">"</span>&nbsp;{{ text }}&nbsp;<span class="quote">"</span>
+          {%else %}
+          <br>
+          <h1 class='msg-none'>No status yet&nbsp;&nbsp;:/</h1><br>
+          <h1 class='msg-none'>Share something cool</h1><br><br>
+          {% endif %}
+        </div>
+        <br>
+      </div>
+    </div>
+
+
+
+    <form method='post'  action='/social/profile/' enctype='multipart/form-data'>
       {% csrf_token %}
-      <h3>Enter or edit your details and/or upload an image</h3>
-      <textarea name='text' cols='50' rows='3'>{{ text }}</textarea>
-      <br>
-      <input type='submit' value='Update Status'>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <input class="msg-form-controls status-text" type="text" name="text" placeholder=" Enter a status...">
+          <input class="msg-form-controls status-send" type='submit' value='Post'>
+        </div>
+      </div>
     </form>
+
 
   </div>
 </div>

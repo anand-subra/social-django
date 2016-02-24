@@ -2,15 +2,38 @@
 
 {% block content %}
 <div class="content member">
-<div class='main'>
-<h2>{{ greeting }} Profile</h2>
-{% if profile %}
-{{ profile }} <br style='clear:left;'><br>
-{% endif %}
-<br>
-<a class='button' href='/social/messages/?view={{ view_user }}'>View Messages</a>
-<br>
-<br>
-</div>
+  <div class='main'>
+
+    <h2>Home</h2>
+    <br><br>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <h1 class="profile-header friend-entry">{{ greeting }} Profile</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <br>
+        <div class="profile-status">
+          {% if profile %}
+          <span class="quote">"</span>&nbsp;{{ profile }}&nbsp;<span class="quote">"</span>
+          {% else %}
+          <br>
+          <h1 class='msg-none'>No status yet</h1><br><br>
+          {% endif %}
+        </div>
+        <br>
+      </div>
+    </div>
+    <br>
+    <a class='button' href='/social/messages/?view={{ view_user }}'>View Messages</a>
+    <br>
+    <br>
+
+
+
+  </div>
 </div>
 {% endblock %}
