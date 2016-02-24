@@ -12,43 +12,33 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 	<div class="container-fluid">
-		<center>
-			<!-- <canvas id='logo' width='624' height='96'> {{ appname }} </canvas> -->
-		</center>
 		<script src="{% static 'social/scripts.js' %}"></script>
-		<div class="row nav nav-pills navbar-fixed-top">
-			<div class="col-lg-4 col-md-4 col-sm-4">
 				{% if loggedin %}
-				<div class='appname text-left'>{{ username }}</div>
-				{% else %}
-				<div class='appname text-left'>{{ appname }} {{ username }}</div>
-				{% endif %}
-			</div>
+				<div class="row nav nav-pills navbar-fixed-top">
+					<div class="col-lg-4 col-md-4 col-sm-4">
+					<div class='appname text-left'><a class="profilestatus" href='/social/members/?view={{ username }}'>{{ username }}</a></div>
+				</div>
+			{% endif %}
+
 
 			<div class="col-lg-8 col-md-8 col-sm-8">
 				<ul class='text-right'>
 					{% if loggedin %}
 					<button class="btn"><a href='/social/members/?view={{ username }}'> <span class="glyphicon glyphicon-home"></span><p>Home</p></a></button>
 					<button class="btn"><a href='/social/members/'><span class="glyphicon glyphicon-globe"></span><p>Members</p></a></button>
-					<button class="btn"><a href='/social/friends/'><span class="glyphicon glyphicon-list-alt "></span><p>Friends</p></a></button>
 					<button class="btn"><a href='/social/messages/'><span class="glyphicon glyphicon-envelope"></span><p>Messages</p></a></button>
 					<button class="btn"><a href='/social/profile/'><span class="glyphicon glyphicon-user" ></span><p>Edit Profile</p></a></button>
 					<button class="btn"><a href='/social/logout/'><span class="glyphicon glyphicon-log-out"></span><p>Log out</p></a></button></ul>
-					{% else %}
-					<button class="btn"><a href='/social/'><span class="glyphicon glyphicon-home"></span><p>Home</p></a></button>
-					<button class="btn"><a href="/social/signup/"><span class="glyphicon glyphicon-edit"></span><p>Sign up</p></a></button>
-					<button class="btn"><a href='/social/login/'><span class="glyphicon glyphicon-log-in "></span><p>Log in</p></a></button>
 					{% endif %}
 				</ul>
 
 			</div>
 		</div>
 
-		<br>
 		{% block content %}
 		{% endblock %}
 	</div>
-
 </body>
 </html>

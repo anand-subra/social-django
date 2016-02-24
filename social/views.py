@@ -170,7 +170,7 @@ def members(request):
     if 'deleteFriend' in request.GET:
         friend = request.GET['deleteFriend']
         friend_obj = Member.objects.get(pk=friend)
-        
+
         relationship1 = Friends.objects.get(friend1 = member_obj, friend2 = friend_obj)
         relationship2 = Friends.objects.get(friend1 = friend_obj, friend2 = member_obj)
 
@@ -302,7 +302,9 @@ def searchStatus(request):
         if search_text in currentMember.username:
             statuss.append(currentMember.username)
 
-    statuss.remove(user.username)
+    #Remove current user if he is in the list
+    if user.username in statuss:
+        statuss.remove(user.username)
 
     #If the search is blank then we return an empty array
     if search_text == "":

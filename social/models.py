@@ -7,7 +7,6 @@ class Member(models.Model):
     username = models.CharField(max_length=16,primary_key=True)
     password = models.CharField(max_length=16)
     profile = models.OneToOneField(Profile, null=True)
-    following = models.ManyToManyField("self", symmetrical=False)
 
     def __str__(self):
         return self.username
@@ -27,4 +26,3 @@ class FriendRequests(models.Model):
 class Friends(models.Model):
     friend1 = models.ForeignKey(Member, related_name='%(class)s_friend1')
     friend2 = models.ForeignKey(Member, related_name='%(class)s_friend2')
-

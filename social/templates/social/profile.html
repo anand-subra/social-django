@@ -4,7 +4,7 @@
 <div class="content profile">
 <div class='main'>
 {% if text %}
-<h3>Your Profile</h3>
+<h2>Your Profile</h2>
 {{ text }} <br style='clear:left;'><br>
 {% endif %}
 <form method='POST' action='/social/profile/' enctype='multipart/form-data'>
@@ -12,7 +12,7 @@
 	<h3>Enter or edit your details and/or upload an image</h3>
 	<textarea name='text' cols='50' rows='3'>{{ text }}</textarea>
 	<br>
-   <input type='submit' value='Save Profile'>
+   <input type='submit' value='Update Status'>
 </form>
 </div>
 </div>

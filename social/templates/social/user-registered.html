@@ -2,12 +2,14 @@
 
 {% block content %}
 <div class="content user-registered">
-<span class='info'>&#8658; You must be logged in to view this page.</span>
-<br>
-<br>
-<div class='main'><h3>Please enter your details to sign up</h3>
-<h4>Account for user {{ username }} created.</h4>
-Please Log in.
-</div>
+  <br>
+  <br>
+  <div class='main'>
+    <h4>Account for user</h4><br>
+    <h1 style="color:white;">{{ username }}</h1><br>
+    <h4>has been created.</h4>
+    <br>
+      Please <a style="text-decoration: underline;" href='/social/'>click here</a> to continue.
+  </div>
 </div>
 {% endblock %}

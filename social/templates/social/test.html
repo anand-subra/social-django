@@ -1,16 +1,29 @@
 {% block content %}
 
 {% if statuss > 0 %}
-    <ul class="statuss">
         {% for status in statuss %}
-            <li>
-                <p>{{status}}</p>
-            </li>
-        {% endfor %}    
-    </ul>
+            <div class=" col-lg-4 col-md-6 col-sm-6">
+              <div class="friend-entry">
+                <h3 class="friend-name"><a class="profilestatus" href="/social/members/?view={{status}}">{{status}}</a> <h3>
+                </div>
+                <br>
+              </div>
+        {% endfor %}
 {% else %}
     <p>No status found.</p>
 {% endif %}
 
+<script>
+  $(".friend-entry").each(function() {
+    var random1 = Math.floor(Math.random() * 255);
+    var random2 = Math.floor(Math.random() * 255);
+    var random3 = Math.floor(Math.random() * 255);
+
+    var colourIndex = Math.floor(Math.random() * 6);
+    var colourArray = ["#777777","#337ab7","#5bb85c","#5bc0de","#f0ad4e","#d9534e"];
+
+    this.style.backgroundColor = colourArray[colourIndex];
+  });
+</script>
 
 {% endblock %}
