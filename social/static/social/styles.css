@@ -10,6 +10,7 @@ body {
     font-family: 'PT Sans Caption', sans-serif;
 }
 html {
+    overflow-y: hidden;
     overflow-x: hidden;
     background-color: #171d21;
 }
@@ -399,7 +400,7 @@ li#search-tab > a {
     opacity: 1.0;
 }
 .chat-feed {
-    height: 600px;
+    height: 450px;
     background-color: #232c31;
     overflow: scroll;
     max-width: 100%;
@@ -490,11 +491,11 @@ li#search-tab > a {
   color: white;
 }
 .profile-status {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   font-size: 14pt;
   overflow: scroll;
-  height: 450px;
+  height: 350px;
 }
 .quote {
   font-size: 20pt;
