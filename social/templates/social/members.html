@@ -80,7 +80,7 @@
 											<div class="col-lg-4 col-md-6 col-sm-6">
 												<br>
 												<div class="friend-entry">
-													<h3 class="friend-name"><a href="/social/members/?view={{request.sender}}">{{request.sender}}</a> <a href="?deleteFriend={{ friend.friend2 }}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a> <a href="?approveFriendRequest={{request.sender}}"> <span class="glyphicon glyphicon-thumbs-up friend-stat-glyph"></span></a><h3>
+													<h3 class="friend-name"><a href="/social/members/?view={{request.sender}}">{{request.sender}}</a> <a href="?deletePendingFriendRequest={{ request.sender }}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a> <a href="?approveFriendRequest={{request.sender}}"> <span class="glyphicon glyphicon-thumbs-up friend-stat-glyph"></span></a><h3>
 													</div>
 												</div>
 												{% endfor %}
@@ -101,7 +101,7 @@
 												<div class=" col-lg-4 col-md-6 col-sm-6">
 													<br>
 													<div class="friend-entry">
-														<h3 class="friend-name"><a href="/social/members/?view={{request.recipient}}">{{sent.recipient}}</a> <a href="?approveFriendRequest={{request.sender}}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a><h3>
+														<h3 class="friend-name"><a href="/social/members/?view={{request.recipient}}">{{sent.recipient}}</a> <a href="?deleteFriendRequest={{ sent.recipient }}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a><h3>
 														</div>
 													</div>
 													{% endfor %}

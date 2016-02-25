@@ -177,6 +177,24 @@ def members(request):
         relationship1.delete()
         relationship2.delete()
 
+    #Delete Pending Friend Request
+    if 'deletePendingFriendRequest' in request.GET:
+        friend = request.GET['deletePendingFriendRequest']
+        friend_obj = Member.objects.get(pk=friend)
+        #Find Desired Friend Request Object
+        req_obj = FriendRequests.objects.get(sender = friend_obj, recipient = member_obj)
+        req_obj.status = True
+        req_obj.delete()
+
+    # Delete a Friend Request
+    if 'deleteFriendRequest' in request.GET:
+        friend = request.GET['deleteFriendRequest']
+        friend_obj = Member.objects.get(pk=friend)
+        #Find Desired Friend Request Object
+        req_obj = FriendRequests.objects.get(sender = member_obj, recipient = friend_obj)
+        req_obj.status = True
+        req_obj.delete()
+
     # Approve a Friend Request
     if 'approveFriendRequest' in request.GET:
         friend = request.GET['approveFriendRequest']
