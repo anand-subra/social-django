@@ -7,7 +7,7 @@
 >*Karishma Bhadesia - 120176799*
 >
 >
-**Login details**
+**Login details:**
 >Most existing accounts have passwords that correspond to their username.
 Accounts that have been exclusively set-up for assessment are as follows:
 
