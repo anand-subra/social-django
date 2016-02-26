@@ -22,9 +22,9 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 profile-entries-long">
 						{% for friend in allFriends %}
-						<div class=" col-lg-4 col-md-6 col-sm-6">
+						<div class=" col-lg-4 col-md-6 col-sm-6 upperDelFriend">
 							<div class="friend-entry">
-								<h3 class="friend-name"><a href="/social/members/?view={{friend.friend2}}">{{friend.friend2}}</a> <a href="?deleteFriend={{ friend.friend2 }}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a><h3>
+								<h3 class="friend-name"><a href="/social/members/?view={{friend.friend2}}">{{friend.friend2}}</a> <a class="delFriend" data-attr="{{friend.friend2}}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a><h3>
 								</div>
 								<br>
 							</div>
@@ -41,7 +41,7 @@
 							{% for member in allMembers %}
 							<div class=" col-lg-4 col-md-6 col-sm-6">
 								<div class="friend-entry">
-									<h3 class="friend-name"><a href="/social/members/?view={{member.username}}">{{member.username}}</a> <a href="?sendFriendRequest={{ member.username }}"> <span class="glyphicon glyphicon-plus friend-stat-glyph"></span> </a><h3>
+									<h3 class="friend-name"><a href="/social/members/?view={{member.username}}">{{member.username}}</a> <a class="sendFriendRequest" data-attr="{{ member.username }}"> <span class="glyphicon glyphicon-plus friend-stat-glyph"></span> </a><h3>
 									</div>
 									<br>
 								</div>
@@ -58,7 +58,7 @@
 								{% for suggestedFriend in suggestedFriends %}
 								<div class=" col-lg-4 col-md-6 col-sm-6">
 									<div class="friend-entry">
-										<h3 class="friend-name"><a href="/social/members/?view={{suggestedFriend.friend2}}">{{suggestedFriend.friend2}}</a> <a href="?approveFriendRequest={{request.sender}}"> <span class="glyphicon glyphicon-plus friend-stat-glyph"></span> </a><h3>
+										<h3 class="friend-name"><a href="/social/members/?view={{suggestedFriend.friend2}}">{{suggestedFriend.friend2}}</a> <a class="sendFriendRequest" data-attr="{{suggestedFriend.friend2}}"> <span class="glyphicon glyphicon-plus friend-stat-glyph"></span> </a><h3>
 										</div>
 										<br>
 									</div>
@@ -71,14 +71,16 @@
 						<div id="friendreqs" class="tab-pane fade">
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12">
+									<br>
 									<h4 id="reqheadings">Pending Requests</h4>
+									<br><br>
 									<div class="row">
 										<div class="col-lg-12 col-md-12 col-sm-12 profile-entries">
 											{% for request in pendingRequests %}
 											<div class="col-lg-4 col-md-6 col-sm-6">
 												<br>
 												<div class="friend-entry">
-													<h3 class="friend-name"><a href="/social/members/?view={{request.sender}}">{{request.sender}}</a> <a href="?deletePendingFriendRequest={{ request.sender }}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a> <a href="?approveFriendRequest={{request.sender}}"> <span class="glyphicon glyphicon-thumbs-up friend-stat-glyph"></span></a><h3>
+													<h3 class="friend-name"><a href="/social/members/?view={{request.sender}}">{{request.sender}}</a> <a class="deletePendingFriendRequest" data-attr="{{request.sender}}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a> <a class="approveFriendRequest" data-attr="{{request.sender}}"> <span class="glyphicon glyphicon-thumbs-up friend-stat-glyph"></span></a><h3>
 													</div>
 												</div>
 												{% endfor %}
@@ -87,18 +89,19 @@
 									</div>
 								</div>
 
-							<br>
 
 								<div class="row">
 									<div class="col-lg-12 col-md-12 col-sm-12">
+										<br>
 										<h4 id="reqheadings">Sent Requests</h4>
+										<br><br>
 										<div class="row">
 											<div class="col-lg-12 col-md-12 col-sm-12 profile-entries">
 												{% for sent in sentRequests %}
 												<div class=" col-lg-4 col-md-6 col-sm-6">
 													<br>
 													<div class="friend-entry">
-														<h3 class="friend-name"><a href="/social/members/?view={{request.recipient}}">{{sent.recipient}}</a> <a href="?deleteFriendRequest={{ sent.recipient }}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a><h3>
+														<h3 class="friend-name"><a href="/social/members/?view={{request.recipient}}">{{sent.recipient}}</a> <a class="deleteFriendRequest" data-attr="{{sent.recipient}}"> <span class="glyphicon glyphicon-remove-circle friend-stat-glyph"></span> </a><h3>
 														</div>
 													</div>
 													{% endfor %}
@@ -144,12 +147,74 @@
 								$(".btn").click(function(){
 									location.reload();
 								});
+								$(".delFriend").click(function(){
+									$.ajax({
+										type: "GET",
+										url: "",
+										data: {
+											'deleteFriend' : $(this).attr("data-attr"),
+											'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+										},
+										success: window.location.reload(false),
+										dataType: 'html'
+									});
+								});
+								$(".sendFriendRequest").click(function(){
+									$.ajax({
+										type: "GET",
+										url: "",
+										data: {
+											'sendFriendRequest' : $(this).attr("data-attr"),
+											'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+										},
+										success: window.location.reload(false),
+										dataType: 'html'
+									});
+								});
+								$(".deletePendingFriendRequest").click(function(){
+									$.ajax({
+										type: "GET",
+										url: "",
+										data: {
+											'deletePendingFriendRequest' : $(this).attr("data-attr"),
+											'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+										},
+										success: window.location.reload(false),
+										dataType: 'html'
+									});
+								});
+								$(".approveFriendRequest").click(function(){
+									$.ajax({
+										type: "GET",
+										url: "",
+										data: {
+											'approveFriendRequest' : $(this).attr("data-attr"),
+											'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+										},
+										success: window.location.reload(false),
+										dataType: 'html'
+									});
+								});
+								$(".deleteFriendRequest").click(function(){
+									$.ajax({
+										type: "GET",
+										url: "",
+										data: {
+											'deleteFriendRequest' : $(this).attr("data-attr"),
+											'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+										},
+										success: window.location.reload(false),
+										dataType: 'html'
+									});
+								});
 							});
 
 							function searchSuccess(data, textStatus, jqXHR)
 							{
 								$('#search-results').html(data)
 							}
+							
+
 							</script>
 
 						</div>
