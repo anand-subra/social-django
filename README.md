@@ -2,9 +2,9 @@
 
 QM Web Programming Coursework -  Group 21
 
-*Anand Subramaniam - 120078688
-Farhan Essa - 120165324
-Karishma Bhadesia - 120176799*
+*Anand Subramaniam - 120078688*
+*Farhan Essa - 120165324*
+*Karishma Bhadesia - 120176799*
 
 **Login details**
 Most existing accounts have passwords that correspond to their username.
